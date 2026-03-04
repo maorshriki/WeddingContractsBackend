@@ -152,12 +152,32 @@ async function seedContracts() {
   console.log('חוזים שהוזנו:', inserted);
 }
 
+const DEMO_PREDEFINED_MESSAGES: { title: string; body: string }[] = [
+  { title: 'תזכורת לחוזה', body: 'שלום, נשמח להזכיר שמחכים לחתימה על החוזה. תודה!' },
+  { title: 'אישור תאריך', body: 'שלום, מאשרים את התאריך והשעה לאירוע. נשמח לאשר קבלה.' },
+  { title: 'תשלום מקדמה', body: 'שלום, נשמח לקבל את המקדמה בהקדם. פרטי העברה נשלחו בנפרד.' },
+];
+
+async function seedPredefinedMessages() {
+  await pool.query(`DELETE FROM predefined_messages WHERE user_id = $1`, [DEMO_USER_ID]);
+  let inserted = 0;
+  for (const m of DEMO_PREDEFINED_MESSAGES) {
+    await pool.query(
+      `INSERT INTO predefined_messages (user_id, title, body) VALUES ($1, $2, $3)`,
+      [DEMO_USER_ID, m.title, m.body]
+    );
+    inserted++;
+  }
+  console.log('הודעות מובנות שהוזנו:', inserted);
+}
+
 async function main() {
   try {
     await ensureDemoUser();
     await seedDefaultTemplates();
     await seedDemoUserTemplates();
     await seedContracts();
+    await seedPredefinedMessages();
     console.log('Seed מרכזי הושלם.');
   } catch (err) {
     console.error('Seed נכשל:', err);
@@ -167,4 +187,4 @@ async function main() {
   }
 }
 
-main();
+main().then();

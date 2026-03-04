@@ -1,4 +1,5 @@
 -- Drop all tables (order: dependents first)
+DROP TABLE IF EXISTS predefined_messages;
 DROP TABLE IF EXISTS contract_templates;
 DROP TABLE IF EXISTS default_templates;
 DROP TABLE IF EXISTS contracts;
@@ -58,3 +59,14 @@ CREATE TABLE contract_templates (
 );
 CREATE INDEX idx_contract_templates_user_id ON contract_templates(user_id);
 CREATE INDEX idx_contract_templates_created_at ON contract_templates(created_at DESC);
+
+-- הודעות מובנות לוואטסאפ (לכל משתמש)
+CREATE TABLE predefined_messages (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  title VARCHAR(255) NOT NULL,
+  body TEXT NOT NULL DEFAULT '',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+CREATE INDEX idx_predefined_messages_user_id ON predefined_messages(user_id);
+CREATE INDEX idx_predefined_messages_created_at ON predefined_messages(created_at DESC);

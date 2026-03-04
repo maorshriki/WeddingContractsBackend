@@ -191,15 +191,14 @@ if ! node dist/db/migrate.js; then
   exit 1
 fi
 
-if ! node dist/scripts/seed.js; then
+if ! npx ts-node scripts/seed.ts; then
   echo ""
   echo "=========================================="
   echo "  Seed failed"
   echo "=========================================="
   echo ""
   echo "Run manually after fixing the issue:"
-  echo "  npm run build"
-  echo "  node dist/scripts/seed.js"
+  echo "  npx ts-node scripts/seed.ts"
   echo ""
   exit 1
 fi

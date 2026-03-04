@@ -9,6 +9,7 @@ const config_1 = require("./config");
 const contracts_1 = __importDefault(require("./routes/contracts"));
 const auth_1 = __importDefault(require("./routes/auth"));
 const templates_1 = __importDefault(require("./routes/templates"));
+const messages_1 = __importDefault(require("./routes/messages"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
@@ -20,6 +21,7 @@ app.use((req, _res, next) => {
 app.use(`${config_1.config.apiPrefix}/auth`, auth_1.default);
 app.use(`${config_1.config.apiPrefix}/contracts`, contracts_1.default);
 app.use(`${config_1.config.apiPrefix}/templates`, templates_1.default);
+app.use(`${config_1.config.apiPrefix}/messages`, messages_1.default);
 app.get('/health', (_req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });

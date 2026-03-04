@@ -4,6 +4,7 @@ import { config } from './config';
 import contractRoutes from './routes/contracts';
 import authRoutes from './routes/auth';
 import templateRoutes from './routes/templates';
+import messageRoutes from './routes/messages';
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use((req, _res, next) => {
 app.use(`${config.apiPrefix}/auth`, authRoutes);
 app.use(`${config.apiPrefix}/contracts`, contractRoutes);
 app.use(`${config.apiPrefix}/templates`, templateRoutes);
+app.use(`${config.apiPrefix}/messages`, messageRoutes);
 
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });

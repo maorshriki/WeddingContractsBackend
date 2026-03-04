@@ -7,9 +7,6 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn src/index.ts",
-    "db:migrate": "node dist/db/migrate.js",
-    "db:migrate:dev": "ts-node src/db/migrate.ts",
-    "seed": "ts-node scripts/seed.ts",
     "setup": "bash scripts/setup-and-migrate.sh"
   },
   "dependencies": {

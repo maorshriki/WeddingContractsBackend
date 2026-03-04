@@ -31,6 +31,7 @@ export interface Contract {
   createdAt: string;
   updatedAt: string;
   clientName?: string;
+  clientPhone?: string;
   clientAvatarURL?: string;
 }
 
@@ -39,6 +40,7 @@ export interface ContractRow {
   user_id: string;
   vendor_type: string;
   couple_name: string;
+  client_phone: string | null;
   event_date: Date;
   location: string;
   start_time: string;
@@ -72,5 +74,6 @@ export function rowToContract(row: ContractRow): Contract {
     createdAt: row.created_at.toISOString(),
     updatedAt: row.updated_at.toISOString(),
     clientName: row.couple_name,
+    clientPhone: row.client_phone ?? undefined,
   };
 }

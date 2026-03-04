@@ -57,13 +57,14 @@ router.post('/', async (req, res) => {
     const startTimeStr = ed.startTime ? (typeof ed.startTime === 'string' && ed.startTime.includes('T') ? ed.startTime.slice(11, 16) : ed.startTime) : '19:00';
     try {
         const { rows } = await client_1.pool.query(`INSERT INTO contracts (
-        user_id, vendor_type, couple_name, event_date, location, start_time,
+        user_id, vendor_type, couple_name, client_phone, event_date, location, start_time,
         total_amount, advance_payment, payment_schedule, cancellation_term_ids, status
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
       RETURNING *`, [
             user.userId,
             body.vendorType,
             ed.coupleName || '',
+            body.clientPhone?.trim() || null,
             eventDateStr,
             ed.location || '',
             startTimeStr,

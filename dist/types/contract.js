@@ -22,5 +22,6 @@ function rowToContract(row) {
         createdAt: row.created_at.toISOString(),
         updatedAt: row.updated_at.toISOString(),
         clientName: row.couple_name,
+        clientPhone: row.client_phone ?? undefined,
     };
 }

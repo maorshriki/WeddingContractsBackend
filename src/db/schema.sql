@@ -20,6 +20,7 @@ CREATE TABLE contracts (
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   vendor_type VARCHAR(100) NOT NULL,
   couple_name VARCHAR(255) NOT NULL DEFAULT '',
+  client_phone VARCHAR(30),
   event_date DATE NOT NULL,
   location VARCHAR(500) NOT NULL DEFAULT '',
   start_time TIME NOT NULL,

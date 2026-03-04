@@ -42,7 +42,6 @@ const template_1 = require("../types/template");
 const dbError_1 = require("../lib/dbError");
 const rtfFromSections_1 = require("../lib/rtfFromSections");
 const router = (0, express_1.Router)();
-router.use(auth_1.authMiddleware);
 /** טעינת תבניות ברירת מחדל מקובץ JSON (ללא DB). אם יש sections – ממירים ל-RTF עם כותרות מודגשות. */
 function loadDefaultTemplates() {
     const toTry = [
@@ -54,14 +53,15 @@ function loadDefaultTemplates() {
             const raw = fs.readFileSync(p, 'utf8');
             const arr = JSON.parse(raw);
             const now = new Date().toISOString();
-            return arr.map((t) => {
+            const result = arr.map((t) => {
                 let sectionContents;
                 if (Array.isArray(t.sections) && t.sections.length > 0) {
-                    sectionContents = [(0, rtfFromSections_1.rtfFromSections)(t.sections)];
+                    // טקסט פשוט – מפענח ה-RTF ב-iOS לא תומך ב־ansicpg1255, אז שולחים plain
+                    sectionContents = [(0, rtfFromSections_1.plainFromSections)(t.sections)];
                 }
                 else {
-                    const raw = t.sectionContents;
-                    sectionContents = Array.isArray(raw) ? raw : [String(raw ?? '')];
+                    const rawSc = t.sectionContents;
+                    sectionContents = Array.isArray(rawSc) ? rawSc : [String(rawSc ?? '')];
                 }
                 return {
                     id: t.id,
@@ -72,11 +72,14 @@ function loadDefaultTemplates() {
                     createdAt: now,
                 };
             });
+            console.log(`[templates] Loaded ${result.length} default templates from ${p}`);
+            return result;
         }
     }
+    console.warn('[templates] default-templates.json not found. Tried:', toTry);
     return [];
 }
-// GET /templates/defaults — תבניות ברירת מחדל מקובץ JSON
+// GET /templates/defaults — תבניות ברירת מחדל (ללא אימות – כולם יכולים לראות)
 router.get('/defaults', async (_req, res) => {
     try {
         const templates = loadDefaultTemplates();
@@ -87,6 +90,7 @@ router.get('/defaults', async (_req, res) => {
         res.status(500).json({ error: 'שגיאה בקבלת תבניות ברירת מחדל' });
     }
 });
+router.use(auth_1.authMiddleware);
 // GET /templates — user's saved templates
 router.get('/', async (req, res) => {
     const user = req.user;

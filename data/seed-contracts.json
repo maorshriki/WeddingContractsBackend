@@ -1,14 +1,14 @@
 [
-  { "vendorType": "צלם", "coupleName": "יובל ודנה", "eventDate": "2026-04-15", "location": "הגן בשפיים", "totalAmount": 8500, "advancePayment": 2500, "status": "ממתין" },
-  { "vendorType": "צלם", "coupleName": "עומר ונועם", "eventDate": "2026-05-20", "location": "אולמי רימון", "totalAmount": 12000, "advancePayment": 4000, "status": "טיוטה" },
-  { "vendorType": "דיג'יי", "coupleName": "דן וליעד", "eventDate": "2026-03-10", "location": "חוות הנוער", "totalAmount": 5500, "advancePayment": 1500, "status": "נחתם" },
-  { "vendorType": "דיג'יי", "coupleName": "רועי ומיה", "eventDate": "2026-06-01", "location": "מלון דן אכדיה", "totalAmount": 7200, "advancePayment": 2200, "status": "טיוטה" },
-  { "vendorType": "עיצוב אירועים", "coupleName": "איתי ושלי", "eventDate": "2026-05-05", "location": "פארק הירדן", "totalAmount": 18000, "advancePayment": 6000, "status": "ממתין" },
-  { "vendorType": "עיצוב אירועים", "coupleName": "נועם ותמר", "eventDate": "2026-07-12", "location": "אולם אירועים אלכסנדר", "totalAmount": 22000, "advancePayment": 7000, "status": "טיוטה" },
-  { "vendorType": "אולם", "coupleName": "מאור ופז", "eventDate": "2026-04-22", "location": "לוקא אירועים", "totalAmount": 45000, "advancePayment": 15000, "status": "ממתין" },
-  { "vendorType": "אולם", "coupleName": "אדם ונועה", "eventDate": "2026-08-08", "location": "חוות עדן", "totalAmount": 52000, "advancePayment": 17000, "status": "טיוטה" },
-  { "vendorType": "מאפרת", "coupleName": "שי וליאת", "eventDate": "2026-05-18", "location": "סטודיו צפון", "totalAmount": 2800, "advancePayment": 800, "status": "נחתם" },
-  { "vendorType": "צלם", "coupleName": "גיא ונטע", "eventDate": "2026-06-25", "location": "בית הארחה כנרת", "totalAmount": 9500, "advancePayment": 3000, "status": "טיוטה" },
-  { "vendorType": "דיג'יי", "coupleName": "יוני ודני", "eventDate": "2026-04-02", "location": "קדמה", "totalAmount": 6000, "advancePayment": 1800, "status": "פעיל" },
-  { "vendorType": "אולם", "coupleName": "אלעד ושרה", "eventDate": "2026-09-10", "location": "מצפה אירועים", "totalAmount": 38000, "advancePayment": 12000, "status": "טיוטה" }
+  { "vendorType": "צלם", "coupleName": "יובל ודנה", "clientPhone": "052-384-1201", "eventDate": "2026-04-15", "location": "הגן בשפיים", "totalAmount": 8500, "advancePayment": 2500, "status": "ממתין" },
+  { "vendorType": "צלם", "coupleName": "עומר ונועם", "clientPhone": "050-612-7734", "eventDate": "2026-05-20", "location": "אולמי רימון", "totalAmount": 12000, "advancePayment": 4000, "status": "טיוטה" },
+  { "vendorType": "דיג'יי", "coupleName": "דן וליעד", "clientPhone": "054-227-9015", "eventDate": "2026-03-10", "location": "חוות הנוער", "totalAmount": 5500, "advancePayment": 1500, "status": "נחתם" },
+  { "vendorType": "דיג'יי", "coupleName": "רועי ומיה", "clientPhone": "053-881-4402", "eventDate": "2026-06-01", "location": "מלון דן אכדיה", "totalAmount": 7200, "advancePayment": 2200, "status": "טיוטה" },
+  { "vendorType": "עיצוב אירועים", "coupleName": "איתי ושלי", "clientPhone": "058-741-6350", "eventDate": "2026-05-05", "location": "פארק הירדן", "totalAmount": 18000, "advancePayment": 6000, "status": "ממתין" },
+  { "vendorType": "עיצוב אירועים", "coupleName": "נועם ותמר", "clientPhone": "052-917-2048", "eventDate": "2026-07-12", "location": "אולם אירועים אלכסנדר", "totalAmount": 22000, "advancePayment": 7000, "status": "טיוטה" },
+  { "vendorType": "אולם", "coupleName": "מאור ופז", "clientPhone": "050-334-8879", "eventDate": "2026-04-22", "location": "לוקא אירועים", "totalAmount": 45000, "advancePayment": 15000, "status": "ממתין" },
+  { "vendorType": "אולם", "coupleName": "אדם ונועה", "clientPhone": "054-502-6613", "eventDate": "2026-08-08", "location": "חוות עדן", "totalAmount": 52000, "advancePayment": 17000, "status": "טיוטה" },
+  { "vendorType": "מאפרת", "coupleName": "שי וליאת", "clientPhone": "055-780-9132", "eventDate": "2026-05-18", "location": "סטודיו צפון", "totalAmount": 2800, "advancePayment": 800, "status": "נחתם" },
+  { "vendorType": "צלם", "coupleName": "גיא ונטע", "clientPhone": "052-401-7786", "eventDate": "2026-06-25", "location": "בית הארחה כנרת", "totalAmount": 9500, "advancePayment": 3000, "status": "טיוטה" },
+  { "vendorType": "דיג'יי", "coupleName": "יוני ודני", "clientPhone": "053-689-1147", "eventDate": "2026-04-02", "location": "קדמה", "totalAmount": 6000, "advancePayment": 1800, "status": "פעיל" },
+  { "vendorType": "אולם", "coupleName": "אלעד ושרה", "clientPhone": "050-299-4505", "eventDate": "2026-09-10", "location": "מצפה אירועים", "totalAmount": 38000, "advancePayment": 12000, "status": "טיוטה" }
 ]

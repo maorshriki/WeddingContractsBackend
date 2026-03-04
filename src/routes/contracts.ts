@@ -59,6 +59,7 @@ router.post('/', async (req: Request, res: Response) => {
     eventDetails: { coupleName: string; eventDate: string; location: string; startTime: string };
     pricing: { totalAmount: number; advancePayment: number; paymentSchedule: unknown[] };
     cancellationTermIds: string[];
+    clientPhone?: string;
     status?: string;
   };
   if (!body.vendorType || !body.eventDetails || !body.pricing) {
@@ -71,14 +72,15 @@ router.post('/', async (req: Request, res: Response) => {
   try {
     const { rows } = await pool.query(
       `INSERT INTO contracts (
-        user_id, vendor_type, couple_name, event_date, location, start_time,
+        user_id, vendor_type, couple_name, client_phone, event_date, location, start_time,
         total_amount, advance_payment, payment_schedule, cancellation_term_ids, status
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
       RETURNING *`,
       [
         user.userId,
         body.vendorType,
         ed.coupleName || '',
+        body.clientPhone?.trim() || null,
         eventDateStr,
         ed.location || '',
         startTimeStr,

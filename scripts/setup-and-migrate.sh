@@ -191,10 +191,23 @@ if ! node dist/db/migrate.js; then
   exit 1
 fi
 
+if ! node dist/scripts/seed.js; then
+  echo ""
+  echo "=========================================="
+  echo "  Seed failed"
+  echo "=========================================="
+  echo ""
+  echo "Run manually after fixing the issue:"
+  echo "  npm run build"
+  echo "  node dist/scripts/seed.js"
+  echo ""
+  exit 1
+fi
+
 echo ""
 echo "=========================================="
 echo "  Setup completed successfully."
-echo "  Database updated with tables and demo user."
+echo "  Database updated with schema + full seed data."
 echo "=========================================="
 echo ""
 echo "  Demo user:  daniel@example.com"
